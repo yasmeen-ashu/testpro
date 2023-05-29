@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// @import '~@fortawesome/fontawesome-free/css/all.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+mat-error{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    margin-top: -12px;
+    background-color: white;
+    color: red;
+    display: table-caption !important;
+  }
+  input {
+    margin-top: 12px;
+  }

@@ -1,0 +1,36 @@
+.navbar-brand {
+    font-family: titillium web,sans-serif;
+    font-size: 1.5rem!important;
+    padding-top: 0!important;
+    margin-right: 2rem!important;
+    color: #5cb85c!important;
+}
+.navbar-nav .nav-link {
+    display: block;
+    padding-top: 0.425rem;
+    padding-bottom: 0.425rem;
+}
+.pull-xs-right {
+    float: right!important;
+}
+.nav-link .user-pic {
+    height: 26px;
+    border-radius: 50px;
+    float: left;
+    margin-right: 5px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.navbar-nav .nav-item {
+    float: left;
+}
+.mat-form-field-block{
+    width:100%
+}
+.example-full-width {
+    width: 80%;
+  }

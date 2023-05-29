@@ -1,0 +1,16 @@
+.col-md-3{
+position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    overflow: auto;
+}
+.card-title{
+    color:brown;
+}

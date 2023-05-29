@@ -1,0 +1,49 @@
+<!-- 
+<div class="card col-md-3" style="width: 20rem;height:auto" >
+   <h5 class="card-title ">PopularTags</h5>
+ <div class="card-body  tags">
+    <mat-chip-listbox aria-label="Fish selection" *ngFor="let item of tags">
+      <mat-chip-option>{{item}}</mat-chip-option>
+    </mat-chip-listbox>
+  </div>
+</div> -->
+
+<!-- <app-favorite-button></app-favorite-button> -->
+<!-- <app-new-article></app-new-article> -->
+<!-- <app-sign-in></app-sign-in> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand text" href="#">Conduit</a>
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarRightAlignExample"
+          aria-controls="navbarRightAlignExample"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" (click)="openHome()">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="openSignin()">Signin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="openSignup()">Signup</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> 
+<!-- <app-new-article></app-new-article> -->
+<!-- <app-settings></app-settings> -->
+<!-- <app-favorite-button></app-favorite-button> -->
+<!-- <app-post-comments></app-post-comments> -->
+<router-outlet></router-outlet>
+<app-footer></app-footer>
