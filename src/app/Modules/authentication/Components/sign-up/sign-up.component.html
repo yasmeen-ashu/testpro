@@ -44,21 +44,6 @@
 
 
 <div class="container">
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" style="margin-left: 10%; color:green;">
-            <h2>Conduit</h2>
-        </a>
-    
-        <a class="navbar-brand" href="#" style="margin-left: 58%; color:black;" (click)="openHome()">
-            <h2>Home</h2>
-        </a>
-        <a class="navbar-brand" href="/Signin" style="color:cadetblue;" (click)="openSignin()">
-            <h2>Signin</h2>
-        </a>
-        <a class="navbar-brand" href="/SignUp" style="color: cadetblue;" (click)="openSignup()">
-            <h2>SignUp</h2>
-        </a>
-    </nav> -->
     <div class="card" style="width: 25rem;">
         <div class="card-header">
          <h2>SignUp</h2>
@@ -74,8 +59,8 @@
                         <input matInput formControlName="username" required>
                         <mat-icon matSuffix>face</mat-icon>
                         <mat-error>Username is required</mat-error>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                     </mat-form-field>
+                    <span class="errorMessage mb-1" *ngIf="errorMessage?.username">{{'userName'+'' +errorMessage?.username[0]}}</span>
                 </div>
 
                  <div class="mat-form-field-block">
@@ -84,8 +69,9 @@
                          <input matInput formControlName="email" required>
                          <mat-icon matSuffix>mail</mat-icon>
                          <mat-error>Emial is required</mat-error>
-                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                     </mat-form-field>
+                        </mat-form-field>
+                        <span class="errorMessage mb-1" *ngIf="errorMessage?.email">{{'Email'+''+errorMessage?.email[0]}}</span>
+                    
                  </div>
                  <div class="mat-form-field-block">
                      <mat-form-field class="example-full-width" appearance="outline">

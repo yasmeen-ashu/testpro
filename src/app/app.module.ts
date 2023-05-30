@@ -20,14 +20,14 @@ import { NewArticleComponent } from './Modules/authentication/Components/new-art
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { SettingsComponent } from './Settings/settings/settings.component';
+// import { SettingsComponent } from './Settings/settings/settings.component';
 import { SettingsModule } from './Settings/settings/settings.module';
-import { PostCommentsComponent } from './Settings/post-comments/post-comments.component';
+import { PostCommentsComponent } from './Settings/settings/post-comments/post-comments.component';
 @NgModule({
   declarations: [
     AppComponent,
     NewArticleComponent,
-    SettingsComponent,
+    // SettingsComponent,
     PostCommentsComponent
     // SignInComponent
     // TagsComponent,

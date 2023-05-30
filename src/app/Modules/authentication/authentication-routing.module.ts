@@ -4,8 +4,7 @@ import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'view',pathMatch:'full'},
-  {path:'signin',component:SignInComponent},
+  {path:'',component:SignInComponent},
   {path:'signup',component:SignUpComponent}
 ];
 

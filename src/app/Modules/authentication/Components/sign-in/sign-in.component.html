@@ -1,19 +1,4 @@
 <div class="container">
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#" style="margin-left: 10%; color:green;">
-        <h2>Conduit</h2>
-    </a>
-
-    <a class="navbar-brand" href="#" style="margin-left: 58%; color:black;" (click)="openHome()">
-        <h2>Home</h2>
-    </a>
-    <a class="navbar-brand" href="/Signin" style="color:cadetblue;" (click)="openSignin()">
-        <h2>Signin</h2>
-    </a>
-    <a class="navbar-brand" href="/SignUp" style="color: cadetblue;" (click)="openSignup()">
-        <h2>SignUp</h2>
-    </a>
-</nav> -->
 <div class="card" style="width: 25rem;">
    <div class="card-header">
     <h2>SignIn</h2>
@@ -30,6 +15,7 @@
                     <mat-icon matSuffix>mail</mat-icon>
                     <mat-error>Emial is required</mat-error>
                 </mat-form-field>
+                <span class="errorMessage mb-1" *ngIf="errorStatus?.email">{{'Email'+'' +errorStatus?.email[0]}}</span>
             </div>
             <div class="mat-form-field-block">
                 <mat-form-field class="example-full-width" appearance="outline">
@@ -40,14 +26,17 @@
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
+                <span class="errorMessage mb-1" *ngIf="errorStatus?.password">{{'Password'+'' +errorStatus?.password[0]}}</span>
+
             </div>
           </form>
           <div class="row col-12 col-lg-3 col-xl-3 col-md-3 col-sm-3 display">
             <button mat-raised-button color="primary" [disabled]="!signinForm.valid" (click)="saveSignin()"  >Sign In</button>
         </div>
-      
     </div>
 </div>
+</div>
+
 
 
 

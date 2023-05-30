@@ -8,7 +8,8 @@ import { FeatureRoutingModule } from './feature-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    FeatureRoutingModule
+    FeatureRoutingModule,
+  
   ]
 })
 export class FeatureModule { }

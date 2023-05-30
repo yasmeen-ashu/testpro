@@ -1,10 +1,10 @@
-export class userData {
-users!:Signin
-
-}
-
-export class Signin extends userData{
+export class Signin{
 
     public email:string;
     public password:string;
+}
+
+
+export class Users {
+    public user!:Signin;
 }

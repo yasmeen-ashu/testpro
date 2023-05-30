@@ -24,10 +24,9 @@ openSignin(){
 openSignup(){
   this.router.navigate(['/signup'])
 }
-selectionData(event: {isUserInput: true, selected: true, source: MatChipOption}){
+selectionData(event){
   console.log(event);
-  event.source.value
-this.selectedTags=event.source.value
+this.selectedTags=event
 
   }
 }

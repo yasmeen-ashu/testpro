@@ -14,4 +14,7 @@ export class SettingsService {
   postCommentsData(body):Observable<HttpResponse<any>>{
     return this.apiService.postData(evironment.postcomments,body)
   }
+  updateSettings(body):Observable<HttpResponse<any>>{
+    return this.apiService.updateData(evironment.settings,body)
+  }
 }

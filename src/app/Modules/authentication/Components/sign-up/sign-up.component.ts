@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators,  } from '@angular/forms';
 import { Router, UrlSerializer } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { Signup, users } from '../../modals/signup';
+import {  Signup, User } from '../../modals/signup';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -22,6 +22,7 @@ this.signupForm=new FormGroup({
   password:new FormControl('')
 })
   }
+  errorMessage:any
   ngOnInit(){
 
   }
@@ -46,12 +47,21 @@ this.router.navigate(['/signup'])
     form.email=this.signupForm.get('email')?.value;
     form.password=this.signupForm.get('password')?.value;
     form.username=this.signupForm.get('username')?.value;
-    let user=new users();
-    user.users=form
-    this.authenticationservice.signupData(JSON.stringify(user)).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-      console.log(res);
-      
-    })
-    this.router.navigate(['/signin'])
+    let user=new User();
+    user.user=form
+    this.authenticationservice.signupData(JSON.stringify(user)).subscribe({
+      next: (res) => {
+        console.log(res)
+        if(res.status==200){
+          this.router.navigate(['/signin']);
+        }
+      },
+      error: (err) => {
+        console.log(err)
+        this.errorMessage=err.error.errors;
+        console.log(this.errorMessage)
+    
+      }
+    });
   }
 }

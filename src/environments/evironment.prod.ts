@@ -7,6 +7,10 @@ export const evironment={
     signup:"users",
     newArticle:'articles',
     selectedTags:"articles",
-    postcomments:'articles/Create-a-new-implementation-1/comments'
+    postcomments:'articles/Create-a-new-implementation-1/comments',
+    pagniation:'articles',
+    settings:'user',
+    yourFeed:'articles/feed',
+
 
 }

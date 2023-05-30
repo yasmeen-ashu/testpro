@@ -9,3 +9,15 @@
 .example-full-width {
     width: 80%;
   }
+
+.errorMessage{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    margin-top: -12px;
+    background-color: white;
+    color: red;
+    display: table-caption !important;
+}

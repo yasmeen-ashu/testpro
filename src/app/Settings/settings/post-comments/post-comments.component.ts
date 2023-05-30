@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { SettingsService } from '../settings.service';
+import { SettingsService } from '../../settings.service';
 
 @Component({
   selector: 'app-post-comments',

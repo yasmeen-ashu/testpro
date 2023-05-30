@@ -4,7 +4,7 @@
       <h5 class="card-title">Popular Tags</h5>
      <div class="card-body tags">
       <mat-chip-listbox aria-label="Fish selection" *ngFor="let item of tags">
-        <mat-chip-option (selectionChange)="selcectchip($event)">{{item}}</mat-chip-option>
+        <mat-chip-option (selectionChange)="selcectchip(item)">{{item}}</mat-chip-option>
       </mat-chip-listbox>
     </div>
   </div>

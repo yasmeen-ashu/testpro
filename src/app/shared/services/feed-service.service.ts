@@ -13,4 +13,10 @@ export class FeedServiceService {
   getGlobalFeed(limit:number,offset:number):Observable<HttpResponse<any>>{
     return this.apiService.getData(evironment.globalFeed+'?limit='+limit+'&offset='+offset)
   }
+  getpagination(limit:number,offset:number):Observable<HttpResponse<any>>{
+    return this.apiService.getData(evironment.pagination+'?limit='+limit+'&offset='+offset)
+  }
+  getYourFeedData(limit:number,offset:number):Observable<HttpResponse<any>>{
+    return this.apiService.getData(evironment.yourFeed+'?limit='+limit+'&offset='+offset)
+  }
 }

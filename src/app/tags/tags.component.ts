@@ -30,9 +30,9 @@ this.getTags();
     })
   }
   @Output() selectedData=new EventEmitter()
-  selcectchip(event){
-console.log(event);
-this.selectedData.emit(event)
+  selcectchip(item){
+console.log(item);
+this.selectedData.emit(item)
 this.getTags();
 
   }

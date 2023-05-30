@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil  } from 'rxjs';
@@ -11,6 +12,7 @@ import { HomeService } from './home.service';
 export class AppComponent {
   title = 'SampleProject';
   onDestroy$=new Subject()
+  data: string;
   constructor(private homeservice:HomeService,private router:Router){
 
   }
@@ -30,11 +32,24 @@ this.getTagsData();
   openHome(){
 this.router.navigate(['/view'])
   }
-  openSignin(){
-this.router.navigate(['/signin'])
-  }
+  // openSignin(){
+// this.router.navigate(['/signin'])
+openSignin(){
+  this.router.navigate(['/signin'])
+}
+  
 
   openSignup(){
 this.router.navigate(['/signup'])
+  }
+
+  openView(){
+    if(this.data=''){
+
+    }
+    else{
+      this.router.navigate(['/view'])
+    }
+   
   }
 }

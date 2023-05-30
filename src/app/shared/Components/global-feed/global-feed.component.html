@@ -1,19 +1,16 @@
-
-
-  <div class="card" style="width: 60rem;">
+ <div class="card" style="width: 60rem;">
     <div class="card-body" *ngFor="let item of globalData">
-        <div>
-            <h3 class="card-title mb-5 ">
+        <div class="row">
+            <h3 class="card-title mb-5">
                 <img src="{{item.author.image}}" alt="">
-                <a href=" {{item.author.username}}" target="_blank" (click)="navigateProfile()" > {{item.author.username}}</a>
-            </h3>
+                <a href=" {{item.author.username}}" target="_blank" (click)="navigateProfile()"> {{item.author.username}}</a>
+                <div class="col-12 col-lg-2 col-xl-2 col-md-2 col-sm-2 mb-2 text">
+                  <button type="button" class="btn btn-outline-success my-2 my-sm-0" >1</button>
+                </div>
+             </h3>
             <h5 class="card-subtitle mb-3 text-muted">
                 <a routerlink >{{item.createdAt |date:'MM/dd/YYYY hh:mm'}}</a>
               </h5>
-              <!-- <div>
-
-                <app-favorite-button></app-favorite-button>
-              </div> -->
         </div>
       <h4 class="card-title bold">{{item.slug}}</h4>
       <h5 class="card-subtitle mb-4 text-muted">{{item.description}}</h5>
@@ -24,9 +21,8 @@
           </mat-chip-listbox>
         </h6>
     </div>
-
-     <nav aria-label="Page navigation example">
-            <ul class="pagination">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination" (click)="getData(1)">
               <li class="page-item"><a class="page-link" href="#">Previous</a></li>
               <li class="page-item"><a class="page-link" href="#">1</a></li>
               <li class="page-item"><a class="page-link" href="#">2</a></li>

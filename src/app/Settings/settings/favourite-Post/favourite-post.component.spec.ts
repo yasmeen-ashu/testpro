@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingsComponent } from './settings.component';
+import { FavouritePostComponent } from './favourite-post.component';
 
-describe('SettingsComponent', () => {
-  let component: SettingsComponent;
-  let fixture: ComponentFixture<SettingsComponent>;
+describe('FavouriteButtonComponent', () => {
+  let component: FavouritePostComponent;
+  let fixture: ComponentFixture<FavouritePostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ]
+      declarations: [ FavouritePostComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SettingsComponent);
+    fixture = TestBed.createComponent(FavouritePostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

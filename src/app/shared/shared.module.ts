@@ -8,24 +8,24 @@ import { YourFeedComponent } from './Components/your-feed/your-feed.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { MatCardModule } from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
-import { FavoriteButtonComponent } from '../Feature-Modules/feature/components/favorite-button/favorite-button.component';
 import { TagsComponent } from '../tags/tags.component';
 import { GlobalFeedComponent } from './Components/global-feed/global-feed.component';
 import { ProfileComponent } from './Components/profile/profile.component';
-import { FavouriteButtonComponent } from './Components/favourite-button/favourite-button.component';
+import { FavouritePostComponent } from '../Settings/settings/favourite-Post/favourite-post.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 @NgModule({
   declarations: [
     ViewComponent,
-   GlobalFeedComponent,
-   YourFeedComponent,
+    GlobalFeedComponent,
+    YourFeedComponent,
     TagsComponent,
     FooterComponent,
-    FavoriteButtonComponent,
+    FavouritePostComponent,
     ProfileComponent,
-    FavouriteButtonComponent
+    
   ],
   imports: [
     CommonModule,
@@ -33,14 +33,15 @@ import { FavouriteButtonComponent } from './Components/favourite-button/favourit
     MatToolbarModule,
     MatTabsModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
 
   ],
   exports: [
 
   ViewComponent,FooterComponent,
   TagsComponent,
-  FavoriteButtonComponent
+  FavouritePostComponent
   ]
 })
 export class SharedModule {

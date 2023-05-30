@@ -17,6 +17,7 @@ constructor(private feedServices:FeedServiceService,private router:Router){
 }
 ngOnInit(){
 this.globalFeedData();
+this.getData(1)
 }
 globalData=[]
 globalFeedData(){
@@ -26,6 +27,13 @@ globalFeedData(){
 
     
   })
+}
+getData(offset:number){
+  let limit=10
+  this.feedServices.getpagination(limit,offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
+   console.log(res);
+  })
+  
 }
 navigateProfile(){
   this.router.navigate(['/profile'])

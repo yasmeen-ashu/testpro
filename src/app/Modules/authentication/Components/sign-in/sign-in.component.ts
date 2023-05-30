@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, UrlSerializer } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { Signin, userData } from '../../modals/signin';
-import { users } from '../../modals/signup';
+import { Signin,  Users } from '../../modals/signin';
+// import { users } from '../../modals/signup';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -13,7 +13,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class SignInComponent {
   signinForm:FormGroup;
-  email
   hide=true;
   onDestroy$=new Subject
 constructor(private router:Router,private authenticationservice:AuthenticationService){
@@ -25,15 +24,9 @@ this.signinForm=new FormGroup({
 ngOnInit(){
   // alert('comes to this block')
 }
-// getErrorMessage(){
-//   if (this.email.hasError('required')) {
-//     return 'You must enter a value';
-//   }
 
-//   return this.email.hasError('email') ? 'Not a valid email' : '';
-// }
 openHome(){
-this.router.navigate(['/View'])
+this.router.navigate(['/view'])
 }
 openSignin(){
 this.router.navigate(['/signin'])
@@ -41,20 +34,27 @@ this.router.navigate(['/signin'])
 openSignup(){
 this.router.navigate(['/signup'])
 }
+errorStatus:any
 saveSignin(){
   let form=new Signin()
-  form.email=this.signinForm.get('email')?.value;
+  form.email=this.signinForm.get('email').value;
   form.password=this.signinForm.get('password')?.value;
-
-  let user=new userData();
-  user.users=form
-
-  // user.user=logInObj;
-  this.authenticationservice.signinData(JSON.stringify(user)).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-console.log(res);
-
+  let user=new Users();
+  user.user=form
+  this.authenticationservice.signupData(JSON.stringify(user)).subscribe({
+    next: (res) => {
+      console.log(res)
+      if(res.status==200){
+        this.router.navigate(['/view']);
+      }
+    },
+    error: (err) => {
+      console.log(err)
+      this.errorStatus=err.error.errors;
+      console.log(this.errorStatus)
+  
+    }
   })
-  this.router.navigate(['/view'])
 }
 }
 

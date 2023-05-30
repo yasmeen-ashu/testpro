@@ -3,15 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewComponent } from './shared/Components/view/view.component';
 
 const routes: Routes = [
-//   {path:'',redirectTo:'/shared/view',pathMatch:'full'},
-//   {path:"shared",
-//   loadChildren:()=>import("./shared/shared.module").then(m=>m.SharedModule)
-//  },
-  
-  
-  {path:'',component:ViewComponent},
-  { path: "", redirectTo: "authentication/sign-in", pathMatch: "full" },
-  {path:"",loadChildren:()=>import("./Modules/authentication/authentication.module").then(m=>m.AuthenticationModule)},
+  { path: "", redirectTo: "signin", pathMatch: "full" },
+  {path:'view',component:ViewComponent},
+  {path:"signin",loadChildren:()=>import("./Modules/authentication/authentication.module").then(m=>m.AuthenticationModule)},
  
 ];
 
