@@ -14,7 +14,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { FavouritePostComponent } from '../Settings/settings/favourite-Post/favourite-post.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ViewTagsComponent } from './Components/view-tags/view-tags.component';
+// import { ViewTagsComponent } from './Components/view-tags/view-tags.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 
@@ -29,7 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
     FooterComponent,
     FavouritePostComponent,
     ProfileComponent,
-    ViewTagsComponent,
+    
     
   ],
   imports: [

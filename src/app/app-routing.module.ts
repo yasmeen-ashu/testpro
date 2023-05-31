@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: "", redirectTo: "signin", pathMatch: "full" },
   {path:'view',component:ViewComponent},
   {path:"signin",loadChildren:()=>import("./Modules/authentication/authentication.module").then(m=>m.AuthenticationModule)},
+  // {path:"new-article",loadChildren:()=>import("./Modules/authentication/authentication.module").then(m=>m.AuthenticationModule)},
  
 ];
 

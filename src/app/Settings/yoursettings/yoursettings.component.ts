@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { Settings, UpdateSettings } from '../../settings';
-import { SettingsService } from '../../settings.service';
+import { Settings, UpdateSettings } from '../settings';
+// import { Settings, UpdateSettings } from '../../Directives/modals/settings';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-yoursettings',

@@ -23,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { SettingsComponent } from './Settings/settings/settings.component';
 import { SettingsModule } from './Settings/settings/settings.module';
 import { PostCommentsComponent } from './Settings/settings/post-comments/post-comments.component';
-import { YoursettingsComponent } from './Settings/settings/yoursettings/yoursettings.component';
+import { YoursettingsComponent } from './Settings/yoursettings/yoursettings.component';
 @NgModule({
   declarations: [
     AppComponent,

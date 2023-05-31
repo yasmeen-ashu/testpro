@@ -1,4 +1,7 @@
-import { Settings } from './settings';
+// import { Settings } from './settings.module';
+
+import { Settings } from "../settings";
+
 
 describe('Settings', () => {
   it('should create an instance', () => {

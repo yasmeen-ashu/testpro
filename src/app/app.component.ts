@@ -46,4 +46,14 @@ this.router.navigate(['/signup'])
   openView(){
       this.router.navigate(['/view'])
   }
+  openNewArticle(){
+this.router.navigate(['/newarticle'])
+  }
+  openSetings(){
+this.router.navigate(['/yoursettings'])
+  }
+  openProfile(){
+    this.router.navigate(['/profile'])
+
+  }
 }

@@ -25,7 +25,7 @@ this.getTags();
   getTags(){
     // this.popularTags=[]
     this.homeservice.getTagsData(this.selectedTags,this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-      console.log(this.popularTags); 
+      console.log(res); 
      this.popularTags=res.body
     })
  

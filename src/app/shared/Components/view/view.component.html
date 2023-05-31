@@ -1,4 +1,4 @@
-<div class="container">
+<div class="section">
   <div class="row">
     <mat-toolbar color="primary">
       <span>A Place to share Knowledge...</span>
@@ -20,7 +20,7 @@
       <app-tags (selectedData)="selectionData($event)"></app-tags>
     </div> -->
  
-    <div class="card col-md-12" style="width: 20rem; height:auto">
+    <div class="card col-md-12 " style="width: 20rem; height:auto">
       <h5 class="card-title">Popular Tags</h5>
      <div class="card-body tags">
       <mat-chip-listbox aria-label="Fish selection" *ngFor="let item of tags">

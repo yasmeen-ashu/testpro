@@ -14,15 +14,16 @@ export class GlobalFeedComponent {
   limit:number=10;
   offset:number=0;
   page:number=1;
-  pageSize:number=25;
+  pageSize:number=10;
   displayedRows=0;
   rowsCount:number;
   pageSizes=[];
  
 constructor(private feedServices:FeedServiceService,private router:Router,private homeservice:HomeService){
-  this.pageSizes=[25,50,75,100]
+  // this.pageSizes=[25,50,75,100]
 }
 ngOnInit(){
+  this.pageSizes = [25, 50, 75, 100];
 this.globalFeedData();
 // this.getData(1)
 }
@@ -37,50 +38,81 @@ globalFeedData(){
 }
 totalFeeds
 noOfPages
-getData(){
+// getData(){
   
-  this.feedServices.getpagination(this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-   console.log(res);
-  this.totalFeeds=res.body.articlesCount;
-  this.noOfPages=(this.totalFeeds/this.pageSize) 
+//   this.feedServices.getpagination(this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
+//    console.log(res);
+//   this.totalFeeds=res.body.articlesCount;
+//   this.noOfPages=(this.totalFeeds/this.pageSize) 
 
+//   })
+  
+// }
+globalFeeds
+getData():void{
+  this.feedServices.getpagination(this.pageSize,this.page).subscribe(res=>{
+    console.log(res)
+    this.globalFeeds=res.body.articles;
+    this.totalFeeds=res.body.articlesCount;
+    console.log(this.globalFeeds,res.body);
+    this.displayedRows = this.page * this.pageSize;
+    this.noOfPages=(this.totalFeeds/this.pageSize) //ramu sir code.
+    // console.log(this.noOfPages)
+    this.totalFeeds = this.totalFeeds ?? 0;
+    if (this.displayedRows > this.totalFeeds) {
+      this.displayedRows = this.totalFeeds;
+    }
   })
-  
 }
-navigateLast(){
-  let lastpagecount
-  lastpagecount  = (this.rowsCount/this.pageSize);
- if(!Number.isInteger(lastpagecount)){
-  this.page = ~~(++lastpagecount);
-}
-else{
-  this.page = lastpagecount;
-}
-  this.displayedRows=this.rowsCount
-  this.getData()
-}
-navigateNext(){
-  this.page++;
 
-  this.getData()
-}
-navigateBefore(){
-  this.page--;  
-  this.getData() 
-}
-navigatefirst(){
-  this.page=1;
-  this.displayedRows =(this.page *this.pageSize) 
-  this.getData()
-}
-onSelectionChange(event){
 
-}
 navigateProfile(){
   this.router.navigate(['/profile'])
 }
+navigatefirst(){
+  this.page = 1;
+  this.displayedRows = (this.page * this.pageSize)
+ this. getData()
+
+}
+navigateBefore(){
+  this.page--;
+  this.getData();
+}
+navigateNext(){
+  this.page++;
+  this.getData();
+}
+navigateLast(){
+  let lastpagecount
+  lastpagecount = (this.totalFeeds / this.pageSize);
+  if (!Number.isInteger(lastpagecount)) {
+    this.page = ~~(++lastpagecount);
+  }
+  else {
+    this.page = lastpagecount
+  }
+  this.displayedRows = this.totalFeeds;
+this.getData();
+}
 
 
+pageSelectionChange(event){
+  let findPage = ((this.displayedRows+1) / event.value);
+    if (!Number.isInteger(findPage)) {
+      this.page = ~~(++findPage);
+    }
+    else{
+      this.page=findPage;
+    }
+    this.getData();
+    if (this.totalFeeds >= event.value) {
+      this.displayedRows = event.value;
+    }
+    else {
+      this.displayedRows = this.totalFeeds;
+    }
+  }
 
 
 }
