@@ -41,12 +41,13 @@ saveSignin(){
   form.password=this.signinForm.get('password')?.value;
   let user=new Users();
   user.user=form
-  this.authenticationservice.signupData(JSON.stringify(user)).subscribe({
+  this.authenticationservice.signinData(JSON.stringify(user)).subscribe({
     next: (res) => {
       console.log(res)
       if(res.status==200){
-        this.router.navigate(['/view']);
-      }
+          localStorage.setItem("currentUser", JSON.stringify(true));
+          this.router.navigate(['/view']);
+        }
     },
     error: (err) => {
       console.log(err)

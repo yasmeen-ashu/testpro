@@ -1,10 +1,36 @@
 
 
-  <div class="card col-md-12" style="width: 20rem; height:auto">
+  <!-- <div class="card col-md-12" style="width: 20rem; height:auto">
       <h5 class="card-title">Popular Tags</h5>
      <div class="card-body tags">
       <mat-chip-listbox aria-label="Fish selection" *ngFor="let item of tags">
         <mat-chip-option (selectionChange)="selcectchip(item)">{{item}}</mat-chip-option>
       </mat-chip-listbox>
     </div>
-  </div>
+  </div> -->
+
+
+   <div class="card" style="width: 60rem;">
+    <div class="card-body" *ngFor="let item of popularTags">
+        <div class="row">
+            <h3 class="card-title mb-5">
+                <img src="{{item.author.image}}" alt="">
+                <a href=" {{item.author.username}}" target="_blank" (click)="navigateProfile()"> {{item.author.username}}</a>
+                <div class="col-12 col-lg-2 col-xl-2 col-md-2 col-sm-2 mb-2 text">
+                  <button type="button" class="btn btn-outline-success my-2 my-sm-0" >1</button>
+                </div>
+             </h3>
+            <h5 class="card-subtitle mb-3 text-muted">
+                <a routerlink >{{item.createdAt |date:'MM/dd/YYYY hh:mm'}}</a>
+              </h5>
+        </div>
+      <h4 class="card-title bold">{{item.slug}}</h4>
+      <h5 class="card-subtitle mb-4 text-muted">{{item.description}}</h5>
+      <span><h5>Read More....</h5></span>
+      <h6 class="text-muted tag-default tag-outline">
+        <mat-chip-listbox aria-label="Fish selection" *ngFor="let options of item.tagList"> 
+            <mat-chip-option>{{options}}</mat-chip-option>
+          </mat-chip-listbox>
+        </h6>
+    </div>
+</div>

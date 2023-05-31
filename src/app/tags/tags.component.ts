@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { HomeService } from '../home.service';
 import { AuthenticationService } from '../Modules/authentication/services/authentication.service';
@@ -16,30 +16,27 @@ export class TagsComponent {
 
   }
   ngOnInit(){
-this.getTagsData();
 this.getTags();
   }
-  tags
-  getTagsData():void{
-    this.tags=[]
-    this.homeservice.getTags().pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-
-      console.log(res);
-   this.tags=res.body.tags
   
-    })
-  }
+  @Input() selectedTags:string
   @Output() selectedData=new EventEmitter()
-  selcectchip(item){
-console.log(item);
-this.selectedData.emit(item)
-this.getTags();
-
-  }
+  popularTags
   getTags(){
-    this.homeservice.getTagsData(this.tags,this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-      console.log(res);
-      
+    // this.popularTags=[]
+    this.homeservice.getTagsData(this.selectedTags,this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
+      console.log(this.popularTags); 
+     this.popularTags=res.body
     })
-  }
+ 
+ }
+ navigateProfile(){
+
+ }
+
+
+ ngOnChanges(changes:SimpleChanges){
+  console.log(this.selectedTags);
+  
+ }
 }

@@ -13,6 +13,10 @@ import { GlobalFeedComponent } from './Components/global-feed/global-feed.compon
 import { ProfileComponent } from './Components/profile/profile.component';
 import { FavouritePostComponent } from '../Settings/settings/favourite-Post/favourite-post.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ViewTagsComponent } from './Components/view-tags/view-tags.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -25,6 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     FooterComponent,
     FavouritePostComponent,
     ProfileComponent,
+    ViewTagsComponent,
     
   ],
   imports: [
@@ -34,7 +39,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatTabsModule,
     MatCardModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSelectModule
 
   ],
   exports: [

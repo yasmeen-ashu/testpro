@@ -4,11 +4,11 @@ export class UpdateSettings{
 
 
 export class Settings {
-    public profile:string;
-    public shortbio:string;
-    public username:string;
+    public bio:string;
     public email:string;
+    public image:string;
     public password:string;
+    public username:string;
 }
 
 export class Comment{
@@ -16,6 +16,5 @@ export class Comment{
 }
 
 export class Post{
-    public body:string;
 
 }

@@ -19,7 +19,6 @@ export class HomeService {
 
   getTagsData(tags:string,limit:number,offset:number):Observable<HttpResponse<any>>{
     return this.apiService.getData(evironment.selectedTags+'?tag='+tags+'&limit='+limit+"&offset="+offset)
-    // (environment.patientVaccination+"?patientId="+patientId+"&physicianId="+physicianId+"&locationId="+locationId)
   }
 
   

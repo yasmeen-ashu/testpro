@@ -44,12 +44,6 @@ this.router.navigate(['/signup'])
   }
 
   openView(){
-    if(this.data=''){
-
-    }
-    else{
       this.router.navigate(['/view'])
-    }
-   
   }
 }

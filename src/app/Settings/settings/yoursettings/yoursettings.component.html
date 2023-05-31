@@ -1,0 +1,99 @@
+<!-- <p>yoursettings works!</p> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a routerlink="/" class="navbar-brand" ng-reflect-router-link="/" href="/">conduit</a>
+        <ul class="nav navbar-nav pull-xs-right">
+            <li class="nav-item">
+                <a routerlink="/" routerlinkactive="active" class="nav-link" ng-reflect-router-link-active="active"
+                    (click)="openHome()" ng-reflect-router-link="/" href="/"
+                    > Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerlink="/editor" routerlinkactive="active" class="nav-link active" (click)="openArticle()"
+                    ng-reflect-router-link-active="active" ng-reflect-router-link="/editor" href="/editor">
+                    <i class="ion-compose"></i>&nbsp;New Article </a>
+            </li>
+            <li class="nav-item"><a routerlink="/settings" routerlinkactive="active" class="nav-link"
+                    (click)="openSettings()" ng-reflect-router-link-active="active" ng-reflect-router-link="/settings"
+                    href="/settings">
+                    <i class="ion-gear-a"></i>&nbsp;Settings </a></li>
+            <li class="nav-item"><a routerlinkactive="active" class="nav-link" ng-reflect-router-link-active="active"
+                    ng-reflect-router-link="/profile,retruio" href="/profile/retruio">
+                    <img class="user-pic" src="https://api.realworld.io/images/smiley-cyrus.jpeg">
+                    retruio </a></li>
+        </ul>
+    </div>
+</nav> -->
+
+
+<div class="card  d-flex justify-content-center" style="width: 40rem;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+                <form [formGroup]="settingsForm">
+
+                    <div class=" row col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+                        <div class="mat-form-field-block">
+
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Url of profile picture</mat-label>
+                                <input matInput formControlName="profile" placeholder="Url of profile picture">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class=" row col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+                        <div class="mat-form-field-block">
+
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="username" formControlName="UserName">
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="  row col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+                        <div class="mat-form-field-block">
+
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>short bio about you</mat-label>
+                                <textarea matInput placeholder="Short bio about you"
+                                    formControlName="bio"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class=" row col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-sm-4">
+                        <div class="mat-form-field-block">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="email" placeholder="Email">
+                                <mat-error>Email is Required</mat-error>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+                    <div class=" row col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-sm-4">
+                        <div class="mat-form-field-block">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Password</mat-label>
+                                <input matInput formControlName="password" placeholder="New Password">
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div class="row col-12 col-lg-5 col-xl-5 col-md-5 col-sm-5 display">
+            <button mat-raised-button color="warn" [disabled]="!settingsForm.valid"
+                (click)="saveSettingsData()">Update Settings</button>
+        </div>
+    </div>
+    <div class="row col-12 col-lg-5 col-xl-5 col-md-5 col-sm-5 display">
+        <button mat-raised-button color="primary" 
+            (click)="clickLogOut()">Log Out</button>
+    </div>
+
+</div>
