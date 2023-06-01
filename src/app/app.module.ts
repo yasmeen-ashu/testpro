@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+// import { MyInterceptor } from './my-interceptor.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ViewComponent } from './shared/Components/view/view.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { TagsComponent } from './tags/tags.component';
@@ -24,13 +24,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { SettingsModule } from './Settings/settings/settings.module';
 import { PostCommentsComponent } from './Settings/settings/post-comments/post-comments.component';
 import { YoursettingsComponent } from './Settings/yoursettings/yoursettings.component';
+import { ProfileComponent } from './shared/Components/profile/profile.component';
+import { CommentsComponent } from './Modules/comments/comments.component';
 @NgModule({
   declarations: [
     AppComponent,
     NewArticleComponent,
     // SettingsComponent,
     PostCommentsComponent,
-    YoursettingsComponent
+    YoursettingsComponent,
+    CommentsComponent,
+    // ProfileComponent
     // SignInComponent
     // TagsComponent,
     // FavoriteButtonComponent,
@@ -53,11 +57,18 @@ import { YoursettingsComponent } from './Settings/yoursettings/yoursettings.comp
     MatButtonModule,
   ],
   exports:[
-    SharedModule,
+    // SharedModule,
     // SettingsModule,
-    AuthenticationModule
+    AuthenticationModule,
+    // this.username
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: MyInterceptor,
+    //   multi: true
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

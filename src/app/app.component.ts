@@ -53,7 +53,7 @@ this.router.navigate(['/newarticle'])
 this.router.navigate(['/yoursettings'])
   }
   openProfile(){
-    this.router.navigate(['/profile'])
+    this.router.navigate(['./profile'])
 
   }
 }

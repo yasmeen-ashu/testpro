@@ -38,6 +38,7 @@ article.article=form
 
 this.authenticationservice.addNewArticle(article).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
   console.log(res);
+  this.router.navigate(['/comments'])
   
 })
 }

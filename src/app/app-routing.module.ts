@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: "", redirectTo: "signin", pathMatch: "full" },
   {path:'view',component:ViewComponent},
   {path:"signin",loadChildren:()=>import("./Modules/authentication/authentication.module").then(m=>m.AuthenticationModule)},
-  // {path:"new-article",loadChildren:()=>import("./Modules/authentication/authentication.module").then(m=>m.AuthenticationModule)},
+  {path:"yoursettings",loadChildren:()=>import("./Settings/settings/settings.module").then(m=>m.SettingsModule)},
+  {path:'profile',loadChildren:()=>import("./shared/shared.module").then(m=>m.SharedModule)}
  
 ];
 
