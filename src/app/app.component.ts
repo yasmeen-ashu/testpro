@@ -13,10 +13,14 @@ export class AppComponent {
   title = 'SampleProject';
   onDestroy$=new Subject()
   data: string;
+  hideStatus:boolean=false;
   constructor(private homeservice:HomeService,private router:Router){
 
   }
   ngOnInit(){
+    this.hideStatus = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.hideStatus);
+    
 this.getTagsData();
   }
   tags
@@ -53,7 +57,11 @@ this.router.navigate(['/newarticle'])
 this.router.navigate(['/yoursettings'])
   }
   openProfile(){
-    this.router.navigate(['./profile'])
+    console.log('.AAAa');
+    
+    debugger
+    // this.router.navigate(['/shared/profile'])
+    this.router.navigate(['profile', 'profile'])
 
   }
 }

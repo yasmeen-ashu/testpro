@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { HomeService } from 'src/app/home.service';
 import { FeedServiceService } from '../../services/feed-service.service';
@@ -13,61 +13,74 @@ export class GlobalFeedComponent {
   onDestroy$=new Subject
   limit:number=10;
   offset:number=0;
-  page:number=1;
+  page:number=0;
   pageSize:number=10;
-  displayedRows=0;
+  displayedRows:number=0;
   rowsCount:number;
-  pageSizes=[];
+  // pageSizes=[];
+  // page=0;
+
+
+  globalData: any[]=[];
+  totalFeeds:number;
+  // pageSize=10;
+
+  pageSizes=[10,25,50,100];
+  // displayedRows:number;
+  noOfPages=0;
  
 constructor(private feedServices:FeedServiceService,private router:Router,private homeservice:HomeService){
   // this.pageSizes=[25,50,75,100]
 }
 ngOnInit(){
-  this.pageSizes = [25, 50, 75, 100];
-this.globalFeedData();
-// this.getData(1)
+  
+// this.globalFeedData();
+this.getData()
 }
-globalData=[]
-globalFeedData(){
-  this.feedServices.getGlobalFeed(this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
+// globalData=[]
+getData(){
+  // console.log(this.limit);
+  
+  this.feedServices.getGlobalFeed(this.pageSize,this.page).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
     console.log(res);
-    this.globalData=res.body.articles
-
-    
-  })
-}
-totalFeeds
-noOfPages
-// getData(){
-  
-//   this.feedServices.getpagination(this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
-//    console.log(res);
-//   this.totalFeeds=res.body.articlesCount;
-//   this.noOfPages=(this.totalFeeds/this.pageSize) 
-
-//   })
-  
-// }
-globalFeeds
-getData():void{
-  this.feedServices.getpagination(this.pageSize,this.page).subscribe(res=>{
-    console.log(res)
-    this.globalFeeds=res.body.articles;
+    this.globalData=res.body.articles;
     this.totalFeeds=res.body.articlesCount;
-    console.log(this.globalFeeds,res.body);
+    console.log(this.globalData,res.body);
     this.displayedRows = this.page * this.pageSize;
-    this.noOfPages=(this.totalFeeds/this.pageSize) //ramu sir code.
-    // console.log(this.noOfPages)
-    this.totalFeeds = this.totalFeeds ?? 0;
+    this.noOfPages=(this.totalFeeds/this.pageSize)
     if (this.displayedRows > this.totalFeeds) {
       this.displayedRows = this.totalFeeds;
-    }
+    } 
+
   })
 }
 
+// getData():void{
+//   this.feedServices.getpagination(this.pageSize,this.page).subscribe(res=>{
+//     console.log(res)
+//     // this.globalFeeds=res.body.articles;
+//     this.totalFeeds=res.body.articlesCount;
+//     console.log(this.globalFeeds,res.body);
+//     this.displayedRows = this.page * this.pageSize;
+//     this.noOfPages=(this.totalFeeds/this.pageSize) 
+//     // console.log(this.noOfPages)
+//     this.totalFeeds = this.totalFeeds ?? 0;
+//     if (this.displayedRows > this.totalFeeds) {
+//       this.displayedRows = this.totalFeeds;
+//     }
+//   })
+// }
 
-navigateProfile(){
-  this.router.navigate(['/profile'])
+addLikes(){
+
+}
+navigateProfile(item: any){
+  console.log(item);
+  let extras: NavigationExtras = {
+    queryParams: {item: JSON.stringify(item)},
+    skipLocationChange: true
+  }
+  this.router.navigate(['/profile/profile'],  extras);
 }
 navigatefirst(){
   this.page = 1;
@@ -114,10 +127,7 @@ pageSelectionChange(event){
     }
   }
 
-
 }
-
-
 
 
 

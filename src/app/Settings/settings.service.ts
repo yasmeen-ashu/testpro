@@ -12,9 +12,15 @@ export class SettingsService {
   constructor(private apiService:GlobalService) { }
   
   postCommentsData(body):Observable<HttpResponse<any>>{
-    return this.apiService.postData(evironment.postcomments,body)
+    return this.apiService.postData(evironment.comments,body)
   }
   updateSettings(body):Observable<HttpResponse<any>>{
     return this.apiService.updateData(evironment.settings,body)
   }
+getMyPostData(author:string,limit:number,offset:number):Observable<HttpResponse<any>>{
+  return this.apiService.getData(evironment.mypost+'?author='+author+'&limit='+limit+'&offset='+offset)
+}
+// getFavouritePost():Observable<HttpResponse<any>>{
+//   return this.apiService.getData(evironment.favouritePost+'&favorited='+)
+// }  
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Comments } from 'src/app/shared/modals/favourite-button';
 
 @Component({
   selector: 'app-comments',
@@ -6,16 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent {
+  
 constructor(){
+ 
 
 }
 ngOnInit(){
 
 }
-openArticle(){
 
-}
-openSettings(){
-  
-}
 }

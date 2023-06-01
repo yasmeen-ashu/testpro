@@ -5,6 +5,8 @@ import { CommentsComponent } from './comments.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +19,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   exports:[
     CommentsComponent

@@ -11,12 +11,16 @@ import {MatChipsModule} from '@angular/material/chips';
 import { TagsComponent } from '../tags/tags.component';
 import { GlobalFeedComponent } from './Components/global-feed/global-feed.component';
 import { ProfileComponent } from './Components/profile/profile.component';
-import { FavouritePostComponent } from '../Settings/settings/favourite-Post/favourite-post.component';
+// import { FavouritePostComponent } from '../Settings/settings/favourite-Post/favourite-post.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 // import { ViewTagsComponent } from './Components/view-tags/view-tags.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import { SettingsModule } from '../Settings/settings/settings.module';
+import { FavouritePostComponent } from '../Settings/settings/favourite-Post/favourite-post.component';
+import { FormsModule } from '@angular/forms';
+import { SharedRoutingModule } from './shared-routing.modules';
 
 
 
@@ -26,8 +30,8 @@ import {MatSelectModule} from '@angular/material/select';
     GlobalFeedComponent,
     YourFeedComponent,
     TagsComponent,
-    FooterComponent,
-    FavouritePostComponent,
+    // FooterComponent,
+    // FavouritePostComponent,
     ProfileComponent,
     
     
@@ -42,19 +46,21 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatSelectModule
-
+    MatSelectModule,
+    SettingsModule,
+    FormsModule,
+    SharedRoutingModule
   ],
   exports: [
 
-  ViewComponent,FooterComponent,
+  ViewComponent,
+  // FooterComponent,
   TagsComponent,
   ProfileComponent,
-  FavouritePostComponent
+  // FavouritePostComponent,
+  // SettingsModule
   ],
-  // export:items[
-
-  // ]
+  
 })
 export class SharedModule {
 

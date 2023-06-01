@@ -6,12 +6,12 @@ import { ProfileComponent } from "./Components/profile/profile.component";
 const routes: Routes = [
     {path:'',redirectTo:'view',pathMatch:'full'},
     {path:'view',component:ViewComponent},
-    {path:'',component:ProfileComponent}
+    {path:'profile',component:ProfileComponent}
     
 ];
   
   @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
-  export class AppRoutingModule { }
+  export class SharedRoutingModule { }

@@ -26,49 +26,53 @@ import { PostCommentsComponent } from './Settings/settings/post-comments/post-co
 import { YoursettingsComponent } from './Settings/yoursettings/yoursettings.component';
 import { ProfileComponent } from './shared/Components/profile/profile.component';
 import { CommentsComponent } from './Modules/comments/comments.component';
+// import { SharedModule } from "./shared/shared.module";
+import { FooterComponent } from './shared/Components/footer/footer.component';
+import { MyInterceptorInterceptor } from './my-interceptor.interceptor';
 @NgModule({
-  declarations: [
-    AppComponent,
-    NewArticleComponent,
-    // SettingsComponent,
-    PostCommentsComponent,
-    YoursettingsComponent,
-    CommentsComponent,
-    // ProfileComponent
-    // SignInComponent
-    // TagsComponent,
-    // FavoriteButtonComponent,
-  
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    MatCardModule,
-    MatIconModule,
-    HttpClientModule,
-    MatChipsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  exports:[
-    // SharedModule,
-    // SettingsModule,
-    AuthenticationModule,
-    // this.username
-  ],
-  providers: [
+    declarations: [
+        AppComponent,
+        NewArticleComponent,
+        // PostCommentsComponent,
+        YoursettingsComponent,
+        FooterComponent
+        // CommentsComponent,
+        // ProfileComponent
+        // SignInComponent
+        // TagsComponent,
+        // FavoriteButtonComponent,
+    ],
+    exports: [
+        // SharedModule,
+        // SettingsModule,
+        AuthenticationModule,
+        // this.username
+    ],
+    providers: [ { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorInterceptor, multi: true },],
+    // providers: [
     // {
     //   provide: HTTP_INTERCEPTORS,
-    //   useClass: MyInterceptor,
+    //   useClass: MyInterceptorInterceptor,
     //   multi: true
     // }
-  ],
-  bootstrap: [AppComponent]
+    // ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        // SharedModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatPaginatorModule,
+        MatCardModule,
+        MatIconModule,
+        HttpClientModule,
+        MatChipsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+       
+    ]
 })
 export class AppModule { }

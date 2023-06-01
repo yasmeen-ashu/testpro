@@ -17,7 +17,7 @@ export class YoursettingsComponent {
   constructor(private settingService:SettingsService,private router:Router){
     this.settingsForm=new FormGroup({
       profile:new FormControl(''),
-      UserName:new FormGroup(''),
+      userName:new FormControl(''),
       shortbio:new FormControl(''),
       email:new FormControl(''),
       password:new FormControl('')
@@ -25,6 +25,7 @@ export class YoursettingsComponent {
     })
   }
   ngOnInit(){
+console.log('yourSetting');
 
   }
   saveSettingsData(){

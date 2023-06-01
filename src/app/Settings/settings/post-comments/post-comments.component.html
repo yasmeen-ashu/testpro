@@ -1,17 +1,42 @@
-<!-- <p>post-comments works!</p> -->
-<div class="card bg-light mb-3" style="max-width: 30rem;">
-    <!-- <div class="card-body"> -->
+<div class="section">
+    <div class="col-12">
         <div class="row">
-            <div class="mat-form-field-block">
-                <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>Write a Comments</mat-label>
-                    <textarea matInput placeholder="Write a comments"></textarea>
-                </mat-form-field>
+            <div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+                <mat-toolbar color="background">
+                    <mat-toolbar-row>
+                      <span>Article</span>
+                    </mat-toolbar-row>
+                  
+                    <mat-toolbar-row>
+                    </mat-toolbar-row>
+                  
+                    <mat-toolbar-row>
+                    <button mat-raised-button color="accent" (click)="editArticle()">Edit Article</button>
+                    <div class="row">
+                        <div class="col-12 col-lg-3 col-xl-3 col-md-3 col-sm-2">
+                            <button mat-raised-button color="primary"(click)="deleteArticle()">Delete Article</button>
+                        </div>
+
+                    </div>
+                    </mat-toolbar-row>
+                  </mat-toolbar>
+              
             </div>
         </div>
-        <div class=" text-right">
-            <!-- <div class="col-12 col-lg-3 col-xl-3 col-md-3 col-sm-2 mb-3"> -->
-                <button mat-raised-button color="warn" (click)="saveData()">Post Comments</button>
-            <!-- </div> -->
-        <!-- </div> -->
-  </div>
+    </div>
+
+
+
+<div class="card bg-light mb-3" style="max-width: 30rem;">
+    <div class="row">
+        <div class="mat-form-field-block">
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Write a Comments</mat-label>
+                <textarea matInput placeholder="Write a comments"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class=" text-right">
+        <button mat-raised-button color="warn" (click)="saveComments()">Post Comments</button>
+    </div>
+</div>

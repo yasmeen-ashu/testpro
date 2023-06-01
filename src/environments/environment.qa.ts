@@ -12,7 +12,10 @@ export const evironment={
     pagniation:'articles',
     settings:'user',
     yourFeed:'articles/feed',
-
+    favouritebutton:"titlename/favorite",
+    favouritePost:'articles',
+    comments:'articles',
+    mypost:'articles',
 
 
 }

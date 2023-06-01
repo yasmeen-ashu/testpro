@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, UrlSerializer } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Router} from '@angular/router';
+import { Subject } from 'rxjs';
+import { JwtService } from 'src/app/core/core/services/jwt.service';
 import { Signin,  Users } from '../../modals/signin';
 // import { users } from '../../modals/signup';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -14,15 +15,16 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class SignInComponent {
   signinForm:FormGroup;
   hide=true;
-  onDestroy$=new Subject
-constructor(private router:Router,private authenticationservice:AuthenticationService){
+  onDestroy$=new Subject;
+  hideStatus:boolean=false;
+constructor(private router:Router,private authenticationservice:AuthenticationService,private jwtservice:JwtService){
 this.signinForm=new FormGroup({
   email : new FormControl('', [Validators.required, Validators.email]),
   password:new FormControl('')
 })
 }
 ngOnInit(){
-  // alert('comes to this block')
+
 }
 
 openHome(){
@@ -44,6 +46,7 @@ saveSignin(){
   this.authenticationservice.signinData(JSON.stringify(user)).subscribe({
     next: (res) => {
       console.log(res)
+      this.jwtservice.storeToken({token:res.body.user.token})
       if(res.status==200){
           localStorage.setItem("currentUser", JSON.stringify(true));
           this.router.navigate(['/view']);

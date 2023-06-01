@@ -38,17 +38,17 @@ article.article=form
 
 this.authenticationservice.addNewArticle(article).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
   console.log(res);
-  this.router.navigate(['/comments'])
+  this.router.navigate(['/postcomments'])
   
 })
 }
 openHome(){
-this.router.navigate(['/view'])
+// this.router.navigate(['/view'])
 }
 openArticle(){
 
 }
 openSettings(){
-this.router.navigate(['/settings'])
+// this.router.navigate(['/settings'])
 }
 }
