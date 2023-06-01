@@ -1,3 +1,43 @@
 <!-- <p>profile works!</p>
 
 <h2>Hello world</h2> -->
+<div  class="section">
+    <div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12 mb-3">
+        <div class="row">
+              <mat-toolbar color="background">
+                <mat-toolbar-row>
+                  <span>Profile</span>
+                </mat-toolbar-row>
+              
+                <mat-toolbar-row>
+                  <!-- <span>Second Line</span> -->
+                  <!-- <span class="example-spacer"></span> -->
+                  <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon> -->
+                </mat-toolbar-row>
+              
+                <mat-toolbar-row>
+                <button mat-rised-button color="accent" (click)="openSettings()">Edit settings</button>
+                </mat-toolbar-row>
+              </mat-toolbar>
+              
+        </div>
+    </div>
+    <div class="container">
+<div class="col-12">
+
+  <div class="row">
+    <div class="col-12 col-lg-10 col-xl-10 col-md-10 col-sm-10 viewcard">
+      <mat-tab-group>
+        <mat-tab label="Post">
+          <!-- <app-your-feed></app-your-feed> -->
+        </mat-tab>
+        <mat-tab label="Favourite Posts">
+          <!-- <app-global-feed></app-global-feed> -->
+        </mat-tab>
+        <!-- <mat-tab [label]="selectedTags" *ngIf="selectedTags !==''"><app-tags [selectedTags]="selectedTags"></app-tags></mat-tab> -->
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+    </div>
+</div>

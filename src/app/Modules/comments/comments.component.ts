@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent {
+constructor(){
 
+}
+ngOnInit(){
+
+}
+openArticle(){
+
+}
+openSettings(){
+  
+}
 }

@@ -49,8 +49,12 @@ import {MatSelectModule} from '@angular/material/select';
 
   ViewComponent,FooterComponent,
   TagsComponent,
+  ProfileComponent,
   FavouritePostComponent
-  ]
+  ],
+  // export:items[
+
+  // ]
 })
 export class SharedModule {
 

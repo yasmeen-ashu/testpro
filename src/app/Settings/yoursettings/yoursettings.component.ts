@@ -43,6 +43,6 @@ this.settingService.updateSettings(JSON.stringify(form)).pipe(takeUntil(this.onD
 })
   }
   clickLogOut(){
-    this.router.navigate(['/shared/view'])
+    this.router.navigate(['/view'])
   }
 }
