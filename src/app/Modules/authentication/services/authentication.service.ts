@@ -19,4 +19,11 @@ signupData(body):Observable<HttpResponse<any>>{
 addNewArticle(body):Observable<HttpResponse<any>>{
   return this.apiService.postData(evironment.newArticle,body)
 }
+getArticleData():Observable<HttpResponse<any>>{
+  return this.apiService.getData(evironment.getarticleData)
+}
+editArticle(slug:string,body):Observable<HttpResponse<any>>{
+  return this.apiService.updateData(evironment.newArticle+'?slug='+slug,body)
+  // return this.apiService.updateData(environment.newArticle+'?uid='+userId +'&msgType='+msgType,body);
+}
 }

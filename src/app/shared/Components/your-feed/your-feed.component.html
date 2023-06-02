@@ -1,1 +1,53 @@
 <p>No articles are here ... yet </p>
+
+
+
+<div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 patient-in-pagin ">
+    <div class="row w-100  py-2  ">
+      <div class="col-6 col-xl-3 col-lg-3 col-md-4 col-sm-6 patient-in-pagin-left pl-3">
+        <div class="form_btn_input_wrap align-items-center ">
+        <div class="d-flex mr-3 d-flex form_btn_input_wrap_label">Total Records {{displayedRows}} of {{totalFeeds}}</div><div class="">Page:{{page}}</div>
+      <div class=" mat-form-field-block   page-size patient-in-pagin-left ml-3  mat-field-0-padd">
+        <mat-form-field class="example-full-width " appearance="outline">
+
+          <mat-label>Page Size</mat-label>
+          <mat-select  [(ngModel)]="pageSize" name="list"
+           [disableOptionCentering]="true"
+            (selectionChange)="pageSelectionChange($event)">
+            <mat-option *ngFor="let list of pageSizes" [value]="list">
+              {{list}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      </div>
+      </div>
+      <div class="col-6 col-xl-9 col-lg-9 col-md-8 col-sm-6 patient-in-pagin-right ">
+       
+          <div class="email-btn-group m-l-15">
+            <button mat-icon-button aria-label="Example icon-button with a heart icon" 
+            [disabled]="page<=0"
+              (click)="navigatefirst()">
+              <mat-icon>first_page</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button with a heart icon"
+             [disabled]="page<=0"
+              (click)="navigateBefore()">
+              <mat-icon>navigate_before</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button with a heart icon" 
+            [disabled]="page>=noOfPages" 
+            (click)="navigateNext()">
+              <mat-icon>navigate_next</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button with a heart icon"
+            [disabled]="page>=noOfPages" (click)="navigateLast()">
+              <mat-icon>last_page</mat-icon>
+            </button>
+          </div>
+      
+      </div>
+
+    </div>
+  </div>

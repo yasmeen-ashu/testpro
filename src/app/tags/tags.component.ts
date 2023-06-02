@@ -26,7 +26,7 @@ this.getTags();
     // this.popularTags=[]
     this.homeservice.getTagsData(this.selectedTags,this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
       console.log(res); 
-     this.popularTags=res.body
+     this.popularTags=res.body.articles
     })
  
  }
@@ -34,9 +34,14 @@ this.getTags();
 
  }
 
-
+ selectedIndex
  ngOnChanges(changes:SimpleChanges){
-  console.log(this.selectedTags);
-  
+  if(this.selectedIndex==2){
+
+
+  if(changes['selectedTags'].currentValue){
+    console.log(this.selectedTags);
+  }
  }
+}
 }

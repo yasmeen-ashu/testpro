@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
@@ -13,7 +13,11 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class NewArticleComponent {
 articleForm:FormGroup;
 onDestroy$=new Subject
-constructor(private router:Router,private authenticationservice:AuthenticationService){
+articleData=[];
+slug
+constructor(private router:Router,private authenticationservice:AuthenticationService,
+  // @Inject(MAT_DIALOG_DATA) public data: any
+  ){
 this.articleForm=new FormGroup({
   articleTitle:new FormControl(''),
   articleAbout:new FormControl(''),
@@ -22,7 +26,7 @@ this.articleForm=new FormGroup({
 })
 }
 ngOnInit(){
-
+this.editArticle();
 }
 saveArticleData(){
 let form=new Article()
@@ -32,23 +36,34 @@ form.description=this.articleForm.get('articleAbout').value;
 form.body=this.articleForm.get('markdown').value;
 taglist.push(form.tagList=this.articleForm.get('tags').value)
 form.tagList=taglist
-
 let article=new ArticleData()
 article.article=form
-
 this.authenticationservice.addNewArticle(article).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
   console.log(res);
-  this.router.navigate(['/postcomments'])
-  
+  this.articleData=res.body.article;
+  this.getArticle();
+ localStorage.setItem("newArticleData",JSON.stringify(res.body.article))
+  this.router.navigate(['/yoursettings/postcomments'])
 })
 }
-openHome(){
-// this.router.navigate(['/view'])
+getArticle(){
+  this.authenticationservice.getArticleData().pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
+    console.log(res);
+    
+  })
 }
-openArticle(){
+editArticle(){
+  this.authenticationservice.editArticle(this.slug,this.articleData).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
+  })
+}
+if(UpdateData){
 
-}
-openSettings(){
-// this.router.navigate(['/settings'])
+  console.log(UpdateData);
+  
+  this.articleForm.patchValue({
+    title:this.articleForm.get('articleTitle')?.value,
+    description:this.articleForm.get('articleAbout')?.value,
+    body:this.articleForm.get('markdown')?.value
+  })
 }
 }

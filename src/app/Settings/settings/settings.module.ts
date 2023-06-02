@@ -13,6 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { MypostComponent } from './mypost/mypost.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MypostComponent } from './mypost/mypost.component';
     // MatToolbarModule
     MatToolbarModule,
     MatTabsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
     
   ],
 

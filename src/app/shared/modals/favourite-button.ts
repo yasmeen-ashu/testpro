@@ -2,8 +2,8 @@ export class FavouriteButton {
     public
 }
 export class Comments{
-    public comments:string;
+    public body:string;
 }
 export class CommentUser{
-    public user!:Comments
+    public comment!:Comments
 }

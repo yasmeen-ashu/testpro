@@ -7,7 +7,7 @@
   <div class="container">
     <div class="col-12">
   <div class="row">
-    <div class="col-12 col-lg-10 col-xl-10 col-md-10 col-sm-10 viewcard">
+    <div class="col-12 col-lg-10 col-xl-10 col-md-10 col-sm-10 ">
       <mat-tab-group [selectedIndex]=1>
         <mat-tab label="yourFeed">
           <app-your-feed></app-your-feed>
@@ -15,7 +15,7 @@
         <mat-tab label="GobalFeed">
           <app-global-feed></app-global-feed>
         </mat-tab>
-        <mat-tab [label]="selectedTags" *ngIf="selectedTags !==''"><app-tags [selectedTags]="selectedTags"></app-tags></mat-tab>
+        <mat-tab  [label]="selectedTags" *ngIf="selectedTags !==''"><app-tags [selectedTags]="selectedTags"></app-tags></mat-tab>
       </mat-tab-group>
     </div>
     <!-- <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-3">

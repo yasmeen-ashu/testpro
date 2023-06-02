@@ -8,12 +8,16 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
+  
+  userName: string;
 constructor(
   private router:Router,
   private _route: ActivatedRoute
 ){}
 ngOnInit(){
   // alert('comes ')
+  this.userName=JSON.parse(localStorage.getItem('logInUser'));
+  this.userName=JSON.parse(localStorage.getItem('currentUser'))
   this.routerQueryParamsSub();
 }
 openSettings(){

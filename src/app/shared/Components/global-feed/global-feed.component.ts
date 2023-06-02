@@ -17,30 +17,23 @@ export class GlobalFeedComponent {
   pageSize:number=10;
   displayedRows:number=0;
   rowsCount:number;
-  // pageSizes=[];
-  // page=0;
-
-
   globalData: any[]=[];
   totalFeeds:number;
-  // pageSize=10;
-
   pageSizes=[10,25,50,100];
-  // displayedRows:number;
   noOfPages=0;
  
 constructor(private feedServices:FeedServiceService,private router:Router,private homeservice:HomeService){
-  // this.pageSizes=[25,50,75,100]
+  
 }
 ngOnInit(){
   
-// this.globalFeedData();
+
 this.getData()
 }
-// globalData=[]
+
 getData(){
   // console.log(this.limit);
-  
+  let author
   this.feedServices.getGlobalFeed(this.pageSize,this.page).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
     console.log(res);
     this.globalData=res.body.articles;
@@ -54,22 +47,9 @@ getData(){
 
   })
 }
-
-// getData():void{
-//   this.feedServices.getpagination(this.pageSize,this.page).subscribe(res=>{
-//     console.log(res)
-//     // this.globalFeeds=res.body.articles;
-//     this.totalFeeds=res.body.articlesCount;
-//     console.log(this.globalFeeds,res.body);
-//     this.displayedRows = this.page * this.pageSize;
-//     this.noOfPages=(this.totalFeeds/this.pageSize) 
-//     // console.log(this.noOfPages)
-//     this.totalFeeds = this.totalFeeds ?? 0;
-//     if (this.displayedRows > this.totalFeeds) {
-//       this.displayedRows = this.totalFeeds;
-//     }
-//   })
-// }
+handleClick(){
+  
+}
 
 addLikes(){
 

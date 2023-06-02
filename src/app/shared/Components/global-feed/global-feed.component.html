@@ -30,7 +30,7 @@
       </div>
       <h4 class="card-title bold">{{item.slug}}</h4>
       <h5 class="card-subtitle mb-4 text-muted">{{item.description}}</h5>
-      <span><h5>Read More....</h5></span>
+      <span (click)="handleClick()"><h5>Read More....</h5></span>
       <h6 class="text-muted tag-default tag-outline">
         <mat-chip-listbox aria-label="Fish selection" *ngFor="let options of item.tagList"> 
             <mat-chip-option>{{options}}</mat-chip-option>

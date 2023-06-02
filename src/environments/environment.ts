@@ -16,4 +16,6 @@ export const evironment={
    favouritePost:'articles',
    comments:'articles',
    mypost:'articles',
+   getarticleData:'articles/articleTitle-186659',
+   ReadMore:'articles',
 }

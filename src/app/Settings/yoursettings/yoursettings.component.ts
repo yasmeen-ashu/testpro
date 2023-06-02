@@ -31,8 +31,8 @@ console.log('yourSetting');
   saveSettingsData(){
 let form=new Settings()
 form.bio=this.settingsForm.get('shortbio').value;
-form.email=this.settingsForm.get('email').value;
-form.image=this.settingsForm.get('profile').value;
+form.email=this.settingsForm.get('email')?.value;
+form.image=this.settingsForm.get('profile')?.value;
 form.password=this.settingsForm.get('password').value;
 form.username=this.settingsForm.get('userName').value;
 

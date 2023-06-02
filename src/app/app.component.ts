@@ -14,11 +14,13 @@ export class AppComponent {
   onDestroy$=new Subject()
   data: string;
   hideStatus:boolean=false;
+  userName:string;
   constructor(private homeservice:HomeService,private router:Router){
 
   }
   ngOnInit(){
     this.hideStatus = JSON.parse(localStorage.getItem('currentUser'));
+    
     console.log(this.hideStatus);
     
 this.getTagsData();
@@ -36,8 +38,6 @@ this.getTagsData();
   openHome(){
 this.router.navigate(['/view'])
   }
-  // openSignin(){
-// this.router.navigate(['/signin'])
 openSignin(){
   this.router.navigate(['/signin'])
 }

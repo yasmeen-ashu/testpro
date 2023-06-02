@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { MatChipOption } from '@angular/material/chips';
 import { Router } from '@angular/router';
@@ -50,7 +51,9 @@ this.selectedTags=event
     })
   }
   selectedValue
+  selectedIndex
   selcectchip(item){
+   
     this.selectedTags=item
      console.log(item);
  

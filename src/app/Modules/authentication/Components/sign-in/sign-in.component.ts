@@ -23,8 +23,9 @@ this.signinForm=new FormGroup({
   password:new FormControl('')
 })
 }
+userName:string
 ngOnInit(){
-
+  this.userName=JSON.parse(localStorage.getItem('logInUser'));
 }
 
 openHome(){
@@ -49,6 +50,7 @@ saveSignin(){
       this.jwtservice.storeToken({token:res.body.user.token})
       if(res.status==200){
           localStorage.setItem("currentUser", JSON.stringify(true));
+          localStorage.setItem('loginUser',JSON.stringify(form.email))
           this.router.navigate(['/view']);
         }
     },

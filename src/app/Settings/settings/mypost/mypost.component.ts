@@ -25,6 +25,7 @@ addLikes(){
 myPostData(){
   this.services.getMyPostData(this.author,this.limit,this.offset).pipe(takeUntil(this.onDestroy$)).subscribe(res=>{
     console.log(res);
+    localStorage.setItem("author", JSON.stringify(true));
     this.postData=res.body.article;
     
   })

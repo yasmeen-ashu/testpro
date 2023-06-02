@@ -13,7 +13,8 @@ export const evironment={
     yourFeed:'articles/feed',
     favouritebutton:"titlename/favorite",
     favouritePost:'articles',
-    comments:'articles',
+    comments:'articles/:titlename/comments',
     mypost:'articles',
-
+    getarticleData:'articles/articleTitle-186659',
+    ReadMore:'articles',
 }
